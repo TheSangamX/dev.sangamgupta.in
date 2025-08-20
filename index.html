@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sangam's Developer Projects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        header {
+            text-align: center;
+            padding: 50px 20px 20px 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        header p {
+            font-size: 1.1rem;
+            color: #aaaaaa;
+        }
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .project-card {
+            background-color: #1e1e1e;
+            border-radius: 12px;
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        .project-card h2 {
+            margin-top: 0;
+        }
+        .project-card p {
+            color: #cccccc;
+        }
+        .project-card a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 12px;
+            background-color: #ff5722;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.3s;
+        }
+        .project-card a:hover {
+            background-color: #e64a19;
+        }
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #777777;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Hi, I'm Sangam Gupta</h1>
+    <p>App & Web Developer | AI Trading Bots | Projects Showcase</p>
+</header>
+
+<section class="projects">
+    <div class="project-card">
+        <h2>Anonymous Chat Telegram Bot</h2>
+        <p>A Telegram bot to chat anonymously with strangers. Built using Python & Telegram API.</p>
+        <a href="https://github.com/TheSangamX/anonymous-chat-bot" target="_blank">GitHub</a>
+    </div>
+
+    <div class="project-card">
+        <h2>AI-Powered Trading Bot</h2>
+        <p>An automated trading bot using Dhan API with AI predictions and portfolio optimization.</p>
+        <a href="https://github.com/TheSangamX/ai-trading-bot" target="_blank">GitHub</a>
+    </div>
+
+    <div class="project-card">
+        <h2>Portfolio Website Demo</h2>
+        <p>Professional portfolio site built using HTML, CSS, JavaScript showcasing my work.</p>
+        <a href="https://sangamgupta.in" target="_blank">Live Demo</a>
+    </div>
+</section>
+
+<footer>
+    &copy; 2025 Sangam Gupta | <a href="mailto:contact@sangamgupta.in" style="color:#ff5722;">Contact Me</a>
+</footer>
+
+</body>
+</html>
