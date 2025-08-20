@@ -3,101 +3,972 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sangam's Developer Projects</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Sangam Gupta - Premium App Developer | iOS & Android Apps</title>
     <meta name="google-site-verification" content="za0O_TASQjF35bRPlWDF5KbZFT14__bqz-foyPc4xDQ" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <meta name="description" content="Discover premium mobile applications crafted by Sangam Gupta. Award-winning iOS and Android apps with millions of downloads. Download now on App Store and Google Play.">
+    <meta name="keywords" content="Sangam Gupta, iOS apps, Android apps, mobile app developer, premium apps, App Store, Google Play, mobile development, UI/UX design">
+    <meta name="author" content="Sangam Gupta">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dev.sangamgupta.in">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Sangam Gupta - Premium App Developer">
+    <meta property="og:description" content="Award-winning mobile applications with millions of downloads. Discover premium iOS and Android apps.">
+    <meta property="og:image" content="https://dev.sangamgupta.in/images/og-image.jpg">
+    <meta property="og:url" content="https://dev.sangamgupta.in">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Sangam Gupta Apps">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sangam Gupta - Premium App Developer">
+    <meta name="twitter:description" content="Award-winning mobile applications with millions of downloads.">
+    <meta name="twitter:image" content="https://dev.sangamgupta.in/images/twitter-card.jpg">
+    <meta name="twitter:creator" content="@sangamgupta">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sangam Gupta",
+        "jobTitle": "Mobile App Developer",
+        "url": "https://dev.sangamgupta.in",
+        "sameAs": [
+            "https://linkedin.com/in/sangamgupta",
+            "https://github.com/sangamgupta",
+            "https://twitter.com/sangamgupta"
+        ],
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Independent Developer"
+        }
+    }
+    </script>
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Apple Fonts (SF Pro) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+    
     <style>
+        :root {
+            --primary-blue: #007AFF;
+            --secondary-blue: #5AC8FA;
+            --background-primary: #F2F2F7;
+            --background-secondary: #FFFFFF;
+            --text-primary: #000000;
+            --text-secondary: #8E8E93;
+            --text-tertiary: #C7C7CC;
+            --separator: #C6C6C8;
+            --card-background: rgba(255, 255, 255, 0.8);
+            --shadow-light: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.15);
+            --shadow-heavy: 0 8px 25px rgba(0, 0, 0, 0.2);
+            --border-radius: 12px;
+            --border-radius-large: 20px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            background-color: #121212;
-            color: #ffffff;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #F2F2F7 0%, #E5E5EA 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
-        header {
+        
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(248, 248, 248, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 0.5px solid var(--separator);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+        
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .logo-text {
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 400;
+            font-size: 16px;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
             text-align: center;
-            padding: 50px 20px 20px 20px;
+            background: linear-gradient(135deg, #F2F2F7 0%, #E5E5EA 100%);
         }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
+        
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        header p {
-            font-size: 1.1rem;
-            color: #aaaaaa;
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        .projects {
+        
+        .hero-subtitle {
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            letter-spacing: -0.5px;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 60px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            display: block;
+            letter-spacing: -1px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-top: 4px;
+        }
+        
+        /* Apps Section */
+        .apps-section {
+            padding: 80px 0;
+            background: var(--background-primary);
+        }
+        
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+        
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+        
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 24px;
+        }
+        
+        .app-card {
+            background: var(--card-background);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 0.5px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--border-radius-large);
+            padding: 24px;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+        }
+        
+        .app-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .app-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+            box-shadow: var(--shadow-medium);
+            transition: transform 0.3s ease;
+        }
+        
+        .app-card:hover .app-icon {
+            transform: scale(1.05);
+        }
+        
+        .app-info h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            letter-spacing: -0.5px;
+        }
+        
+        .app-developer {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+        
+        .app-rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .stars {
+            color: #FF9500;
+            font-size: 14px;
+        }
+        
+        .rating-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        .app-description {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        
+        .app-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+        
+        .feature-tag {
+            background: rgba(0, 122, 255, 0.1);
+            color: var(--primary-blue);
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 500;
+            border: 0.5px solid rgba(0, 122, 255, 0.2);
+        }
+        
+        .app-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .download-btn {
+            background: var(--primary-blue);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 24px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .download-btn:hover {
+            background: #0056CC;
+            transform: scale(1.02);
+        }
+        
+        .app-price {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+        
+        /* Features Section */
+        .features-section {
+            padding: 80px 0;
+            background: var(--background-secondary);
+        }
+        
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: auto;
+            gap: 32px;
+            margin-top: 60px;
         }
-        .project-card {
-            background-color: #1e1e1e;
-            border-radius: 12px;
-            padding: 20px;
-            transition: transform 0.3s;
-        }
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-        .project-card h2 {
-            margin-top: 0;
-        }
-        .project-card p {
-            color: #cccccc;
-        }
-        .project-card a {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 8px 12px;
-            background-color: #ff5722;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 6px;
-            transition: background 0.3s;
-        }
-        .project-card a:hover {
-            background-color: #e64a19;
-        }
-        footer {
+        
+        .feature-card {
             text-align: center;
-            padding: 30px 20px;
-            color: #777777;
+            padding: 40px 24px;
+            background: var(--card-background);
+            border-radius: var(--border-radius-large);
+            border: 0.5px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 24px;
+        }
+        
+        .feature-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            line-height: 1.6;
+            transition: color 0.2s ease;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            transition: all 0.2s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary-blue);
+            transform: scale(1.05);
+        }
+        
+        .footer-bottom {
+            border-top: 0.5px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .apps-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .app-actions {
+                flex-direction: column;
+                gap: 16px;
+                align-items: stretch;
+            }
+        }
+        
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--background-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .loader {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--text-tertiary);
+            border-top: 3px solid var(--primary-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
-
-<header>
-    <h1>Hi, I'm Sangam Gupta</h1>
-    <p>App & Web Developer | AI Trading Bots | Projects Showcase</p>
-</header>
-
-<section class="projects">
-    <div class="project-card">
-        <h2>Anonymous Chat Telegram Bot</h2>
-        <p>A Telegram bot to chat anonymously with strangers. Built using Python & Telegram API.</p>
-        <a href="https://github.com/TheSangamX/anonymous-chat-bot" target="_blank">GitHub</a>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loader"></div>
     </div>
-
-    <div class="project-card">
-        <h2>AI-Powered Trading Bot</h2>
-        <p>An automated trading bot using Dhan API with AI predictions and portfolio optimization.</p>
-        <a href="https://github.com/TheSangamX/ai-trading-bot" target="_blank">GitHub</a>
-    </div>
-
-    <div class="project-card">
-        <h2>Portfolio Website Demo</h2>
-        <p>Professional portfolio site built using HTML, CSS, JavaScript showcasing my work.</p>
-        <a href="https://sangamgupta.in" target="_blank">Live Demo</a>
-    </div>
-</section>
-
-<footer>
-    &copy; 2025 Sangam Gupta | <a href="mailto:contact@sangamgupta.in" style="color:#ff5722;">Contact Me</a>
-</footer>
-
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">SG</div>
+                <span class="logo-text">Sangam Gupta</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#apps">Apps</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Premium Apps.<br>Exceptional Experiences.</h1>
+            <p class="hero-subtitle">Crafting innovative mobile applications that delight millions of users worldwide</p>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">5M+</span>
+                    <span class="stat-label">Downloads</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">4.8★</span>
+                    <span class="stat-label">Average Rating</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">12</span>
+                    <span class="stat-label">Apps Published</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Apps Section -->
+    <section class="apps-section" id="apps">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Apps</h2>
+                <p class="section-subtitle">Discover our most popular and award-winning applications</p>
+            </div>
+            
+            <div class="apps-grid">
+                <!-- App Card 1 -->
+                <div class="app-card" onclick="window.open('https://play.google.com/store/apps/details?id=com.sangam.productivity', '_blank')">
+                    <div class="app-header">
+                        <div class="app-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="app-info">
+                            <h3>TaskMaster Pro</h3>
+                            <p class="app-developer">Sangam Gupta</p>
+                            <div class="app-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.9 (12K reviews)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="app-description">The ultimate productivity app that helps you organize tasks, set priorities, and achieve your goals with intelligent AI assistance.</p>
+                    <div class="app-features">
+                        <span class="feature-tag">AI-Powered</span>
+                        <span class="feature-tag">Cloud Sync</span>
+                        <span class="feature-tag">Team Collaboration</span>
+                    </div>
+                    <div class="app-actions">
+                        <a href="https://play.google.com/store/apps/details?id=com.sangam.productivity" class="download-btn" target="_blank">
+                            <i class="fab fa-google-play"></i>
+                            Download
+                        </a>
+                        <span class="app-price">$4.99</span>
+                    </div>
+                </div>
+                
+                <!-- App Card 2 -->
+                <div class="app-card" onclick="window.open('https://play.google.com/store/apps/details?id=com.sangam.fitness', '_blank')">
+                    <div class="app-header">
+                        <div class="app-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="app-info">
+                            <h3>FitTrack Elite</h3>
+                            <p class="app-developer">Sangam Gupta</p>
+                            <div class="app-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.8 (8.5K reviews)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="app-description">Advanced fitness tracking with personalized workout plans, nutrition guidance, and real-time health monitoring.</p>
+                    <div class="app-features">
+                        <span class="feature-tag">Health Integration</span>
+                        <span class="feature-tag">Personal Trainer</span>
+                        <span class="feature-tag">Social Features</span>
+                    </div>
+                    <div class="app-actions">
+                        <a href="https://play.google.com/store/apps/details?id=com.sangam.fitness" class="download-btn" target="_blank">
+                            <i class="fab fa-google-play"></i>
+                            Download
+                        </a>
+                        <span class="app-price">Free</span>
+                    </div>
+                </div>
+                
+                <!-- App Card 3 -->
+                <div class="app-card" onclick="window.open('https://play.google.com/store/apps/details?id=com.sangam.finance', '_blank')">
+                    <div class="app-header">
+                        <div class="app-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="app-info">
+                            <h3>WealthWise</h3>
+                            <p class="app-developer">Sangam Gupta</p>
+                            <div class="app-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.7 (15K reviews)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="app-description">Smart investment tracking and portfolio management with AI-driven insights and market analysis.</p>
+                    <div class="app-features">
+                        <span class="feature-tag">Real-time Data</span>
+                        <span class="feature-tag">AI Insights</span>
+                        <span class="feature-tag">Portfolio Analysis</span>
+                    </div>
+                    <div class="app-actions">
+                        <a href="https://play.google.com/store/apps/details?id=com.sangam.finance" class="download-btn" target="_blank">
+                            <i class="fab fa-google-play"></i>
+                            Download
+                        </a>
+                        <span class="app-price">$2.99</span>
+                    </div>
+                </div>
+                
+                <!-- App Card 4 -->
+                <div class="app-card" onclick="window.open('https://play.google.com/store/apps/details?id=com.sangam.education', '_blank')">
+                    <div class="app-header">
+                        <div class="app-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="app-info">
+                            <h3>LearnSmart</h3>
+                            <p class="app-developer">Sangam Gupta</p>
+                            <div class="app-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.9 (22K reviews)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="app-description">Personalized learning platform with adaptive algorithms that adjust to your learning style and pace.</p>
+                    <div class="app-features">
+                        <span class="feature-tag">Adaptive Learning</span>
+                        <span class="feature-tag">Progress Tracking</span>
+                        <span class="feature-tag">Offline Mode</span>
+                    </div>
+                    <div class="app-actions">
+                        <a href="https://play.google.com/store/apps/details?id=com.sangam.education" class="download-btn" target="_blank">
+                            <i class="fab fa-google-play"></i>
+                            Download
+                        </a>
+                        <span class="app-price">Free</span>
+                    </div>
+                </div>
+                
+                <!-- App Card 5 -->
+                <div class="app-card" onclick="window.open('https://play.google.com/store/apps/details?id=com.sangam.photography', '_blank')">
+                    <div class="app-header">
+                        <div class="app-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <div class="app-info">
+                            <h3>PhotoArt Studio</h3>
+                            <p class="app-developer">Sangam Gupta</p>
+                            <div class="app-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.8 (18K reviews)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="app-description">Professional photo editing suite with AI-powered filters, advanced tools, and creative effects.</p>
+                    <div class="app-features">
+                        <span class="feature-tag">AI Filters</span>
+                        <span class="feature-tag">RAW Support</span>
+                        <span class="feature-tag">Cloud Storage</span>
+                    </div>
+                    <div class="app-actions">
+                        <a href="https://play.google.com/store/apps/details?id=com.sangam.photography" class="download-btn" target="_blank">
+                            <i class="fab fa-google-play"></i>
+                            Download
+                        </a>
+                        <span class="app-price">$6.99</span>
+                    </div>
+                </div>
+                
+                <!-- App Card 6 -->
+                <div class="app-card" onclick="window.open('https://play.google.com/store/apps/details?id=com.sangam.music', '_blank')">
+                    <div class="app-header">
+                        <div class="app-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <div class="app-info">
+                            <h3>SoundWave Pro</h3>
+                            <p class="app-developer">Sangam Gupta</p>
+                            <div class="app-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.7 (9.2K reviews)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="app-description">High-quality music player with advanced equalizer, lyrics support, and seamless streaming integration.</p>
+                    <div class="app-features">
+                        <span class="feature-tag">Hi-Res Audio</span>
+                        <span class="feature-tag">Smart Playlists</span>
+                        <span class="feature-tag">Lyrics Sync</span>
+                    </div>
+                    <div class="app-actions">
+                        <a href="https://play.google.com/store/apps/details?id=com.sangam.music" class="download-btn" target="_blank">
+                            <i class="fab fa-google-play"></i>
+                            Download
+                        </a>
+                        <span class="app-price">$3.99</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose Our Apps</h2>
+                <p class="section-subtitle">Built with cutting-edge technology and user-centric design</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Performance Optimized</h3>
+                    <p>Lightning-fast performance with minimal battery usage and optimized memory management.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Privacy Focused</h3>
+                    <p>Your data stays yours. End-to-end encryption and transparent privacy policies.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Cross-Platform</h3>
+                    <p>Seamless experience across iOS, Android, and web platforms with cloud synchronization.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI-Powered</h3>
+                    <p>Smart features powered by machine learning to enhance your productivity and experience.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community Driven</h3>
+                    <p>Regular updates based on user feedback and feature requests from our active community.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Dedicated customer support team available around the clock to assist you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="section-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sangam Gupta</h3>
+                    <p>Passionate mobile app developer creating innovative solutions that make a difference in people's lives.</p>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/sangamgupta" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/sangamgupta" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://twitter.com/sangamgupta" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="mailto:hello@sangamgupta.in"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Apps</h3>
+                    <p><a href="#">TaskMaster Pro</a></p>
+                    <p><a href="#">FitTrack Elite</a></p>
+                    <p><a href="#">WealthWise</a></p>
+                    <p><a href="#">LearnSmart</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <p><a href="#">Help Center</a></p>
+                    <p><a href="#">Privacy Policy</a></p>
+                    <p><a href="#">Terms of Service</a></p>
+                    <p><a href="#">Contact Us</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Developer</h3>
+                    <p><a href="#">About</a></p>
+                    <p><a href="#">Blog</a></p>
+                    <p><a href="#">Press Kit</a></p>
+                    <p><a href="#">Careers</a></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sangam Gupta. All rights reserved. Made with ❤️ for mobile innovation.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Loading Screen
+        window.addEventListener('load', function() {
+            const loading = document.getElementById('loading');
+            setTimeout(() => {
+                loading.classList.add('hidden');
+            }, 1000);
+        });
+        
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Navbar Background on Scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(248, 248, 248, 0.95)';
+            } else {
+                navbar.style.background = 'rgba(248, 248, 248, 0.8)';
+            }
+        });
+        
+        // App Card Click Analytics
+        document.querySelectorAll('.app-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Add analytics tracking here
+                console.log('App card clicked:', this.querySelector('h3').textContent);
+            });
+        });
+        
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for animation
+        document.querySelectorAll('.app-card, .feature-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
